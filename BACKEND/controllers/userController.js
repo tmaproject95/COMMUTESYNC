@@ -76,4 +76,8 @@ export const loginUser = (req, res) => {
     }
 };
 
+export const getUserProfile = (req, res) => {
+    res.status(403).json({ message: 'Access Denied!!! First you need to login...' });
 
+
+}
