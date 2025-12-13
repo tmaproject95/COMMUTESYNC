@@ -6,7 +6,7 @@ const app = express();
 const port=APP_PORT;
 app.use(cors());
 app.use(express.json());
-app.use('/api/users', userRoutes);
+app.use('/api/users', user_routes);
 
 app.listen(PORT, () => {
     console.log(`Server running in on http://localhost:${PORT}`);
