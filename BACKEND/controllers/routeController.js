@@ -56,3 +56,32 @@ export const deleteRoute = (req, res) => {
         });
     });
 };
+
+export const createRoute = (req, res) => {
+    const { source, destination, est_duration } = req.body;
+    if (!source || !destination || !est_duration) {
+        return res.status(400).json({ message: 'Please give all the informations correctly.' });
+    }
+
+    pool.getConnection((err, connection) => {
+        if (err) {
+            return res.status(500).json({ message: 'Connection Error...' });
+        }
+
+
+        connection.query('INSERT INTO Routes (Source, Destination, Est_Duration) VALUES (?, ?, ?)',[source, destination, est_duration], (error, result) => {
+            connection.release();
+
+            if (error) {
+
+                return res.status(500).json({ message: 'Database error.' });
+            } else {
+                res.status(201).json({
+                    message: 'Route created successfully.',
+                    route_id: result.insertId
+                });
+            }
+        });
+    });
+};
+
