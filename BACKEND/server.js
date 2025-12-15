@@ -6,6 +6,7 @@ import route_routes from "./route_routes.js";
 import trip_routes from './routes/trip_routes.js';
 import booknpayment_routes from './routes/booknpayment_routes.js';
 import vehicleseat_routes from './routes/vehiclenseat_routes.js';
+import liveLocation_routes from './routes/liveLocation_routes.js';
 
 
 const app = express();
@@ -18,6 +19,7 @@ app.use("/api/routes", route_routes);
 app.use('/api/trips',trip_routes);
 app.use('/api/bookings', booknpayment_routes);
 app.use('/api/vehicles', vehicleseat_routes);
+app.use('/api/liveLocations', liveLocation_routes);
 
 app.listen(port, () => {
     console.log(`Server running in on http://localhost:${port}`);
