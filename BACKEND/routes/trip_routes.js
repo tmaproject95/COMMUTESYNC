@@ -3,8 +3,7 @@ const router = express.Router();
 import {
     createTrip,
     getAllTrips,
-    getTripById,
-    searchTrips
+
 } from '../controllers/tripController.js';
 router.get('/', getAllTrips);
 router.post('/', createTrip);
